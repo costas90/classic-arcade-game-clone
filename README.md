@@ -1,3 +1,5 @@
+## Game Status: Work In Progress
+
 frontend-nanodegree-arcade-game
 ===============================
 
