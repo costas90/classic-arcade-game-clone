@@ -45,15 +45,32 @@ const Player = function() {
 }
 
 Player.prototype.update = function(dt) {
-  this.x * dt;
+
 }
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.prototype.handleInput = function() {
-
+Player.prototype.handleInput = function(allowedKeys) {
+  console.log(allowedKeys);
+  // if (allowedKeys === 'left') {
+  //   this.x -= 101;
+  // }
+  switch (allowedKeys) {
+    case 'left':
+    this.x -= this.x > 0 ? 101 : 0;
+    break;
+    case 'right':
+    this.x += this.x < 404 ? 101 : 0;
+    break;
+    case 'up':
+    this.y -= this.y > -11 ? 83 : 0;
+    break;
+    case 'down':
+    this.y += this.y < 404 ? 83 : 0;
+  }
+  console.log(this.x, this.y);
 }
 
 // Now instantiate your objects.
