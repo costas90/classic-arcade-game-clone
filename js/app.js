@@ -1,7 +1,5 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
 
     this.sprite = 'images/enemy-bug.png';
 
@@ -9,7 +7,7 @@ var Enemy = function() {
     // Return y coordinate
     this.y = (function() {
       // Pick random value from yArr array
-      const yArr = [83, 166, 249];
+      const yArr = [83-20, 166-20, 249-20];
       const y = Math.floor(Math.random() * yArr.length);
       return yArr[y];
     })();
@@ -29,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += 101 * dt;
+    // this.x += 101 * this.speed * dt;
 };
 
 // Draw the enemy on the screen, required method for game
