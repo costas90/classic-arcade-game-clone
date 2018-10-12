@@ -15,7 +15,7 @@ var Enemy = function() {
     // Return speed
     this.speed = (function() {
       // Pick random value from speedArr array
-      const speedArr = [1, 2, 3];
+      const speedArr = [101, 155, 202];
       const x = Math.floor(Math.random() * speedArr.length);
       return speedArr[x];
     })();
@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    // this.x += 101 * this.speed * dt;
+    this.x += this.speed * dt;
 };
 
 // Draw the enemy on the screen, required method for game
