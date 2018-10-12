@@ -53,10 +53,6 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
-  console.log(allowedKeys);
-  // if (allowedKeys === 'left') {
-  //   this.x -= 101;
-  // }
   switch (allowedKeys) {
     case 'left':
     this.x -= this.x > 0 ? 101 : 0;
@@ -76,11 +72,8 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
 
-const allEnemies = [bug1, bug2, bug3];
+const allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 
 const player = new Player();
 
