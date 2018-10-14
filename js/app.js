@@ -60,7 +60,9 @@ const Player = function() {
 }
 
 Player.prototype.update = function(dt) {
-
+  if (this.y === -11) {
+    this.resetPos();
+  }
 }
 
 Player.prototype.render = function() {
