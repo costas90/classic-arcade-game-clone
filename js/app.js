@@ -1,3 +1,5 @@
+'use strict';
+
 // Enemies our player must avoid
 var Enemy = function() {
   this.sprite = 'images/enemy-bug.png';
@@ -6,6 +8,7 @@ var Enemy = function() {
   this.y = this.generatePosY();
   // set speed variable
   this.speed = this.generateSpeed();
+  this.width = 101;
 };
 
 // Update the enemy's position & speed
@@ -14,7 +17,17 @@ Enemy.prototype.update = function(dt) {
   if (this.x > 505) {
     this.resetPos();
   }
+  if(this.y === player.y && player.x < this.x + this.width && player.x + player.width > this.x) {
+    player.resetPos();
+  }
 };
+
+// Reset the enemy's position and speed randomly
+Enemy.prototype.resetPos = function(dt) {
+  this.x = 0;
+  this.y = this.generatePosY();
+  this.speed = this.generateSpeed();
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -23,7 +36,7 @@ Enemy.prototype.render = function() {
 
 Enemy.prototype.generatePosY = function() {
   // Pick random value from yArr array
-  const yArr = [83-20, 166-20, 249-20];
+  const yArr = [72, 155, 238];
   const y = Math.floor(Math.random() * yArr.length);
   return yArr[y];
 }
@@ -35,11 +48,6 @@ Enemy.prototype.generateSpeed = function() {
   return speedArr[x];
 }
 
-Enemy.prototype.resetPos = function(dt) {
-    this.x = 0;
-    this.y = this.generatePosY();
-    this.speed = this.generateSpeed();
-}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -48,6 +56,7 @@ const Player = function() {
   this.sprite = 'images/char-boy.png';
   this.x = 202;
   this.y = 404;
+  this.width = 101;
 }
 
 Player.prototype.update = function(dt) {
@@ -56,6 +65,12 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+Player.prototype.resetPos = function() {
+  this.x = 202;
+  this.y = 404;
+  console.log('Reset Player Position')
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
@@ -72,7 +87,7 @@ Player.prototype.handleInput = function(allowedKeys) {
     case 'down':
     this.y += this.y < 404 ? 83 : 0;
   }
-  console.log(this.x, this.y);
+  console.log(`Player: ${this.x}, ${this.y}`);
 }
 
 // Now instantiate your objects.
