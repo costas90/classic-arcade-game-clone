@@ -1,40 +1,45 @@
 // Enemies our player must avoid
 var Enemy = function() {
-
-    this.sprite = 'images/enemy-bug.png';
-
-    this.x = 0;
-    // Return y coordinate
-    this.y = (function() {
-      // Pick random value from yArr array
-      const yArr = [83-20, 166-20, 249-20];
-      const y = Math.floor(Math.random() * yArr.length);
-      return yArr[y];
-    })();
-
-    // Return speed
-    this.speed = (function() {
-      // Pick random value from speedArr array
-      const speedArr = [101, 155, 202];
-      const x = Math.floor(Math.random() * speedArr.length);
-      return speedArr[x];
-    })();
+  this.sprite = 'images/enemy-bug.png';
+  this.x = 0;
+  // set Y position on length start
+  this.y = this.generatePosY();
+  // set speed variable
+  this.speed = this.generateSpeed();
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position & speed
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    this.x = this.x > 505 ? 0 : this.x += this.speed * dt;
-
+  this.x += this.speed * dt;
+  if (this.x > 505) {
+    this.resetPos();
+  }
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+Enemy.prototype.generatePosY = function() {
+  // Pick random value from yArr array
+  const yArr = [83-20, 166-20, 249-20];
+  const y = Math.floor(Math.random() * yArr.length);
+  return yArr[y];
+}
+
+Enemy.prototype.generateSpeed = function() {
+  // Pick random value from speedArr array
+  const speedArr = [101, 155, 202];
+  const x = Math.floor(Math.random() * speedArr.length);
+  return speedArr[x];
+}
+
+Enemy.prototype.resetPos = function(dt) {
+    this.x = 0;
+    this.y = this.generatePosY();
+    this.speed = this.generateSpeed();
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -81,12 +86,12 @@ const player = new Player();
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
+  var allowedKeys = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+  };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+  player.handleInput(allowedKeys[e.keyCode]);
 });
