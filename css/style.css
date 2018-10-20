@@ -1,7 +1,10 @@
-html, body, ul {
+body {
     text-align: center;
-    margin: 0;
-    padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -33,8 +36,14 @@ Player Selection
   justify-content: space-evenly;
 }
 
-.playerChar {
+.playerSelection li {
     width: 30%;
+}
+
+.playerChar:hover {
+  background-color: cornflowerblue;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 0 25px;
 }
 
 .startGame {
@@ -42,4 +51,14 @@ Player Selection
   margin-left: auto;
   margin-right: auto;
   padding: 25px;
+}
+
+.charSelected {
+  background-color: cornflowerblue;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 0 25px;
+}
+
+.hidden {
+  display: none;
 }
