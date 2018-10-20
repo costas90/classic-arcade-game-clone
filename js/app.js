@@ -34,6 +34,7 @@ Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Reset the enemy's Y position randomly
 Enemy.prototype.generatePosY = function() {
   // Pick random value from yArr array
   const yArr = [72, 155, 238];
@@ -41,6 +42,7 @@ Enemy.prototype.generatePosY = function() {
   return yArr[y];
 }
 
+// Reset the enemy's speed randomly
 Enemy.prototype.generateSpeed = function() {
   // Pick random value from speedArr array
   const speedArr = [101, 155, 202];
@@ -49,9 +51,7 @@ Enemy.prototype.generateSpeed = function() {
 }
 
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Our player class
 const Player = function() {
   this.sprite = 'images/char-boy.png';
   this.x = 202;
@@ -59,22 +59,29 @@ const Player = function() {
   this.width = 101;
 }
 
+// Update the player's position
 Player.prototype.update = function(dt) {
+  // if the player reaches the water,
+  // reset its position
   if (this.y === -11) {
     this.resetPos();
   }
 }
 
+// Render the player
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+// Reset the player's position
 Player.prototype.resetPos = function() {
   this.x = 202;
   this.y = 404;
   console.log('Reset Player Position')
 }
 
+// Set the movement direction and distance of the player
+// based on the key clicked
 Player.prototype.handleInput = function(allowedKeys) {
   switch (allowedKeys) {
     case 'left':
@@ -92,12 +99,10 @@ Player.prototype.handleInput = function(allowedKeys) {
   console.log(`Player: ${this.x}, ${this.y}`);
 }
 
-// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
 const allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 
+// Place the player object in a variable called player
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
