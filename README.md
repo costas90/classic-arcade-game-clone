@@ -1,8 +1,43 @@
-## Game Status: Work In Progress
+# Classic Arcade Game Clone
 
-frontend-nanodegree-arcade-game
-===============================
+A simple arcade game using object oriented JavaScript.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+![Gameplay](images/app-screenshots/gameplay.PNG)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine to start playing.
+
+### Dependencies
+
+* [Google Fonts](https://fonts.google.com/)
+
+### Installing
+
+Clone with HTTPS
+
+```
+git clone https://github.com/costas90/classic-arcade-game-clone.git
+```
+
+or Download as a zip.
+
+Then open ```index.html``` to open the game in your browser and start playing!
+
+### How to Play
+
+First choose a character and click the "Start Playing Now!" button.
+
+Move the player with the arrow keys. The objective is to collect as high
+of a score as possible. Your score increases by 10 points every time you
+collect a gem or when you reach the water.
+
+Stay away from the red bugs or your score will reset to 0!
+
+## License
+
+This project is licensed under the [MIT License](License.md).
+
+### Acknowledgments
+
+This project is part of the Frontend Nanodegree from Udacity.com.
