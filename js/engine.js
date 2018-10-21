@@ -180,7 +180,6 @@ var Engine = (function(global) {
         });
         Gems.allGems.forEach(function(gem) {
             gem.reset();
-            // gem.render();
         })
         player.resetPos();
     }
