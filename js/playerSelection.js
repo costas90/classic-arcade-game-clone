@@ -1,8 +1,9 @@
 // IIFE
 const Game = (function(global){
-  'use strict;'
+  'use strict';
   const document = global.document;
   const container = document.querySelector('.container');
+  const metrics = document.querySelector('.metrics');
 
   // Listen for character click
   container.addEventListener('click', function(event) {
@@ -14,9 +15,8 @@ const Game = (function(global){
       // characted is clicked, else add it
       if (charSelected !== null) {
         charSelected.classList.remove('charSelected');
-      } else {
-        event.target.classList.add('charSelected');
       }
+      event.target.classList.add('charSelected');
     }
   })
 
@@ -29,16 +29,23 @@ const Game = (function(global){
     container1.insertAdjacentElement('afterEnd', warning);
   }
 
+  // Hide player selection modal, reveal metrics, and
+  // save the selected char image
+  function hidePlayerSelection(metrics, charSelected) {
+    container.classList.add('hidden');
+    metrics.classList.remove('hidden');
+    player.sprite = charSelected.getAttribute('src');
+  }
+
   // start game
   function start() {
+    const charSelected = document.querySelector('.charSelected');
     // If no character is selected show
     // a warning, else start the game
-    const charSelected = document.querySelector('.charSelected');
     if (charSelected === null) {
       warning();
     } else {
-      container.classList.add('hidden');
-      player.sprite = charSelected.getAttribute('src');
+      hidePlayerSelection(metrics, charSelected);
     }
   }
 

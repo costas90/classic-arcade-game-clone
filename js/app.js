@@ -19,6 +19,7 @@ Enemy.prototype.update = function(dt) {
   }
   if(this.y === player.y && player.x < this.x + this.width && player.x + player.width > this.x) {
     player.resetPos();
+    Metrics.resetPoints();
   }
 };
 
@@ -65,6 +66,7 @@ Player.prototype.update = function(dt) {
   // reset its position
   if (this.y === -11) {
     this.resetPos();
+    Metrics.addPoints();
   }
 }
 
