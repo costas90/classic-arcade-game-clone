@@ -29,14 +29,14 @@ Player Selection
   border: 5px black solid;
 }
 
-.playerSelection {
+.container1 {
   display: flex;
   flex-flow: row wrap;
   list-style: none;
   justify-content: space-evenly;
 }
 
-.playerSelection li {
+.container1 li {
     width: 30%;
 }
 

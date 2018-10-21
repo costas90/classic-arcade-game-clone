@@ -3,7 +3,6 @@ const Game = (function(global){
   'use strict;'
   const document = global.document;
   const container = document.querySelector('.container');
-  let playerSelection = '';
 
   // Listen for character click
   container.addEventListener('click', function(event) {
@@ -12,21 +11,22 @@ const Game = (function(global){
     // Add .charSelected class to character clicked
     if (event.target.classList.contains('playerChar')) {
       // Remove charSelected if another
-      // characted is clicked
+      // characted is clicked, else add it
       if (charSelected !== null) {
         charSelected.classList.remove('charSelected');
+      } else {
+        event.target.classList.add('charSelected');
       }
-      event.target.classList.add('charSelected');
     }
   })
 
   // Show a warning message if no character is charSelected
   function warning() {
     const warning = document.createElement('h4');
-    const playerSelection = document.querySelector('.playerSelection');
+    const container1 = document.querySelector('.container1');
     warning.textContent = 'Please select a character first!';
     warning.style.color = 'red';
-    playerSelection.insertAdjacentElement('afterEnd', warning);
+    container1.insertAdjacentElement('afterEnd', warning);
   }
 
   // start game
