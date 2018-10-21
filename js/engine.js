@@ -175,6 +175,14 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        allEnemies.forEach(function(enemy) {
+            enemy.resetPos();
+        });
+        Gems.allGems.forEach(function(gem) {
+            gem.reset();
+            // gem.render();
+        })
+        player.resetPos();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -202,4 +210,8 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+
+    return {
+      reset: reset
+    }
 })(this);

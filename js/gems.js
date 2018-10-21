@@ -6,7 +6,7 @@ const Gems = (function() {
   // color and positions. It will return an objects
   // with all these functions
   function gem(color) {
-    
+
     // Pick the right image path based on the gem color
     const genImage = function() {
       switch(color) {
@@ -56,6 +56,10 @@ const Gems = (function() {
           this.x = generatePosX();
           Metrics.addPoints();
         }
+      },
+      reset: function() {
+        this.y = generatePosY();
+        this.x = generatePosX();
       }
     }
   }
