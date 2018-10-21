@@ -93,6 +93,13 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+
+        // Loop through each gem in the allGems array
+        // and call the update method
+        Gems.allGems.forEach(function(gem) {
+            gem.update(dt);
+        })
+
         player.update();
     }
 
@@ -153,6 +160,12 @@ var Engine = (function(global) {
             enemy.render();
         });
 
+        // Loop through each gem in the allGems array
+        // and call the render method
+        Gems.allGems.forEach(function(gem) {
+            gem.render();
+        })
+
         player.render();
     }
 
@@ -177,7 +190,10 @@ var Engine = (function(global) {
         'images/char-cat-girl.png',
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'images/Gem Blue.png',
+        'images/Gem Green.png',
+        'images/Gem Orange.png'
     ]);
     Resources.onReady(init);
 

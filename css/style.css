@@ -56,6 +56,12 @@ Player Selection
   margin-right: auto;
   padding: 25px;
   font-size: 16px;
+  background: #4CAF50;
+  color: white;
+}
+
+.startGame:hover {
+  background: green;
 }
 
 .charSelected {
