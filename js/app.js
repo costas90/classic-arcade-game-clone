@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
   }
   if(this.y === player.y && player.x < this.x + this.width && player.x + player.width > this.x) {
     player.resetPos();
-    Metrics.resetPoints();
+    Game.end();
   }
 };
 

@@ -1,6 +1,7 @@
 'use strict';
 const container = document.querySelector('.container');
 const container1 = document.querySelector('.container1');
+const endContainer = document.querySelector('.endContainer');
 const metrics = document.querySelector('.metrics');
 const h4 = document.createElement('h4');
 
@@ -38,6 +39,11 @@ const Game = (function(){
     player.sprite = charSelected.getAttribute('src');
   }
 
+  function hideEndScreen() {
+    endContainer.classList.add('hidden');
+    container.classList.remove('hidden');
+  }
+
   // start game
   function start() {
     const charSelected = document.querySelector('.charSelected');
@@ -50,10 +56,18 @@ const Game = (function(){
     }
   }
 
+  function end() {
+    endContainer.classList.remove('hidden');
+    metrics.classList.add('hidden');
+    Metrics.showScore();
+  }
+
   // Return the start
   // function in an object
   return {
-    start: start
+    start: start,
+    end: end,
+    hideEndScreen: hideEndScreen
   }
 
 })();

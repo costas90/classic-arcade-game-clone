@@ -1,8 +1,13 @@
 'use strict';
 const score = document.querySelector('.score');
+const endScore = document.querySelector('.endScore');
 
 const Metrics = (function() {
   let points = 0;
+
+  function currentScore() {
+    endScore.textContent = `Score: ${points}`;
+  }
 
   function add() {
     console.log('add points');
@@ -24,7 +29,12 @@ const Metrics = (function() {
     reset();
   }
 
+  function showScore() {
+    currentScore();
+  }
+
   return {
+    showScore: showScore,
     addPoints: addPoints,
     resetPoints: resetPoints
   }

@@ -182,6 +182,8 @@ var Engine = (function(global) {
             gem.reset();
         })
         player.resetPos();
+        Game.hideEndScreen();
+        Metrics.resetPoints();
     }
 
     /* Go ahead and load all of the images we know we're going to need to

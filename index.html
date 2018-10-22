@@ -18,10 +18,15 @@
       </ul>
       <button onclick="Game.start()" class="startGame">Start Playing Now!</button>
     </section>
+    <section class="container endContainer hidden">
+      <h2 class="endTitle">Game Over!</h2>
+      <p class="endScore"></p>
+      <button onclick="Engine.reset()" class="startGame">Play Again!</button>
+    </section>
     <section class="metrics hidden">
       <span class="score">Score: 0</span>
     </section>
-    <script src="js/playerSelection.js"></script>
+    <script src="js/game.js"></script>
     <script src="js/metrics.js"></script>
     <script src="js/gems.js"></script>
     <script src="js/resources.js"></script>
