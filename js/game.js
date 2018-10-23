@@ -8,6 +8,7 @@ const h4 = document.createElement('h4');
 // IIFE
 const Game = (function(){
 
+  // Callback function that handles character selection.
   function selection(event) {
     const charSelected = document.querySelector('.charSelected');
     // Add .charSelected class to character clicked
@@ -39,12 +40,18 @@ const Game = (function(){
     player.sprite = charSelected.getAttribute('src');
   }
 
+  // Hide end screen
   function hideEndScreen() {
     endContainer.classList.add('hidden');
     container.classList.remove('hidden');
   }
 
-  // start game
+  // Privately hide end screen
+  function _hideEndScreen() {
+    hideEndScreen();
+  }
+
+  // Start game
   function start() {
     const charSelected = document.querySelector('.charSelected');
     // If no character is selected show
@@ -56,18 +63,29 @@ const Game = (function(){
     }
   }
 
+  // Privately start game
+  function _start() {
+    start();
+  }
+
+  // End game and show final score
   function end() {
     endContainer.classList.remove('hidden');
     metrics.classList.add('hidden');
     Metrics.showScore();
   }
 
+  // Privately hide end game
+  function _end() {
+    end();
+  }
+
   // Return the start
   // function in an object
   return {
-    start: start,
-    end: end,
-    hideEndScreen: hideEndScreen
+    start: _start,
+    end: _end,
+    hideEndScreen: _hideEndScreen
   }
 
 })();

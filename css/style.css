@@ -9,11 +9,9 @@ body {
   padding: 0;
 }
 
-
-
 /*
 
-Player Selection
+Game Start and End
 
  */
 
@@ -50,7 +48,8 @@ Player Selection
   padding: 0 25px;
 }
 
-.startGame {
+.startGame,
+.endGame {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -60,7 +59,8 @@ Player Selection
   color: white;
 }
 
-.startGame:hover {
+.startGame:hover,
+.endGame:hover {
   background: green;
 }
 
@@ -76,7 +76,7 @@ Player Selection
 
 /*
 
-Player Selection
+Metrics
 
  */
 

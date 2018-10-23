@@ -32,7 +32,7 @@ Move the player with the arrow keys. The objective is to collect as high
 of a score as possible. Your score increases by 10 points every time you
 collect a gem or when you reach the water.
 
-Stay away from the red bugs or your score will reset to 0!
+Stay away from the red bugs! If you touch them the game will be over.
 
 ## License
 

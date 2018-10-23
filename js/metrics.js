@@ -5,37 +5,43 @@ const endScore = document.querySelector('.endScore');
 const Metrics = (function() {
   let points = 0;
 
-  function currentScore() {
-    endScore.textContent = `Score: ${points}`;
-  }
-
+  // Add 10 points
   function add() {
-    console.log('add points');
     points += 10;
     score.textContent = `Score: ${points}`;
   }
 
+  // Add points privately
+  function _add() {
+    add();
+  }
+
+  // Reset points
   function reset() {
-    console.log('reset points');
     points = 0;
     score.textContent = `Score: ${points}`;
   }
 
-  function addPoints() {
-    add();
-  }
-
-  function resetPoints() {
+  // Reset points privately
+  function _reset() {
     reset();
   }
 
+  // Show final score
   function showScore() {
-    currentScore();
+    endScore.textContent = `Score: ${points}`;
   }
 
+  // Privately show final score
+  function _showScore() {
+    showScore();
+  }
+
+  // Make _add, _Reset,
+  // _showScore public
   return {
-    showScore: showScore,
-    addPoints: addPoints,
-    resetPoints: resetPoints
+    addPoints: _add,
+    resetPoints: _reset,
+    showScore: _showScore
   }
 })();

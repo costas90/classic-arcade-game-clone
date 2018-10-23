@@ -1,10 +1,10 @@
-
+'use srict';
 // Gems contains a factory function and returns allGems
 const Gems = (function() {
 
-  // Contains many functions for the gem image,
-  // color and positions. It will return an objects
-  // with all these functions
+  // Prototype function setting the gem
+  // color, position X and Y, along with
+  // render, update, and reset methods
   function gem(color) {
 
     // Pick the right image path based on the gem color
@@ -31,7 +31,7 @@ const Gems = (function() {
 
     // Generate position X at random
     const generatePosX = function() {
-      // Pick random value from yArr array
+      // Pick random value from xArr array
       const xArr = [0, 101, 202, 303, 404];
       const x = Math.floor(Math.random() * xArr.length);
       return xArr[x];

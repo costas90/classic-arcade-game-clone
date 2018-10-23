@@ -79,7 +79,6 @@ Player.prototype.render = function() {
 Player.prototype.resetPos = function() {
   this.x = 202;
   this.y = 404;
-  console.log('Reset Player Position')
 }
 
 // Set the movement direction and distance of the player
@@ -98,7 +97,6 @@ Player.prototype.handleInput = function(allowedKeys) {
     case 'down':
     this.y += this.y < 404 ? 83 : 0;
   }
-  console.log(`Player: ${this.x}, ${this.y}`);
 }
 
 // Place all enemy objects in an array called allEnemies

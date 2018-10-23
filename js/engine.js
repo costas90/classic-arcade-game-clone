@@ -174,15 +174,19 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        // Reset all enemies
         allEnemies.forEach(function(enemy) {
             enemy.resetPos();
         });
+        // Reset Gem Location
         Gems.allGems.forEach(function(gem) {
             gem.reset();
         })
+        // Reset player position
         player.resetPos();
+        // Hide End Screen
         Game.hideEndScreen();
+        // Reset score points
         Metrics.resetPoints();
     }
 
