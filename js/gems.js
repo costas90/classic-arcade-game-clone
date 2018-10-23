@@ -46,7 +46,7 @@ const Gems = (function() {
       x: generatePosX(),
       // Draw the gem on canvas
       render: function() {
-        ctx.drawImage(Resources.get(this.image), this.x, this.y);
+        ctx.drawImage(Resources.get(this.image), this.x, this.y, 101, 130);
       },
       // Update the gem's position
       // and player score
